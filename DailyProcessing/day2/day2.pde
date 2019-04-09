@@ -1,12 +1,14 @@
 void setup() {
+
   size(1000, 600);
   background(200);
-  smooth(0);
   stroke(0);
   fill(0);
+
 }
 
-void draw(){
+
+void draw() {
   
   float centX, centY;
   
@@ -21,9 +23,9 @@ void draw(){
   float thisRadius, rad;
   float radiusNoise = random(1);
 
-  for (radius = 100; radius <= 600; radius += 120){
+  for (radius = 100; radius <= 600; radius += 120) {
    
-    for (ang = 0; ang <= 360; ang += 1){
+    for (ang = 0; ang <= 360; ang += 1) {
       
       radiusNoise += 0.1;
       thisRadius = radius + (noise(radiusNoise) * 180) - 400;
@@ -31,8 +33,10 @@ void draw(){
       x = centX + (thisRadius * cos(rad));
       y = centY + (thisRadius * sin(rad));
       
-      line(x, y, x, y);
+      point(x, y);
+      
     }
+    
   }
 
   saveFrame("screen.jpg");
